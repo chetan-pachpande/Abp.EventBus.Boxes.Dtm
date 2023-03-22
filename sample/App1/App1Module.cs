@@ -18,7 +18,6 @@ using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.Autofac;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.EntityFrameworkCore;
-using Volo.Abp.EntityFrameworkCore.SqlServer;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Identity;
@@ -50,6 +49,9 @@ using Volo.Abp.EventBus.Distributed;
 using Volo.Abp.EntityFrameworkCore.DistributedEvents;
 using EasyAbp.Abp.EventBus.Boxes.Dtm.Outbox;
 using Volo.Abp.EventBus.RabbitMq;
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
+using Volo.Abp.EntityFrameworkCore.MySQL;
 
 namespace App1;
 
@@ -58,6 +60,7 @@ namespace App1;
     typeof(AbpAspNetCoreMvcModule),
     typeof(AbpAutofacModule),
     typeof(AbpAutoMapperModule),
+    typeof(AbpEntityFrameworkCoreMySQLModule),
     typeof(AbpSwashbuckleModule),
     typeof(AbpAspNetCoreAuthenticationJwtBearerModule),
     typeof(AbpAspNetCoreSerilogModule),
@@ -308,13 +311,31 @@ public class App1Module : AbpModule
             options.AddDefaultRepositories(includeAllEntities: true);
         });
 
+        var configuration = BuildConfiguration();
+
         Configure<AbpDbContextOptions>(options =>
         {
-            options.Configure(configurationContext =>
+            options.Configure(ctx =>
             {
-                configurationContext.UseSqlServer();
+                if (ctx.ExistingConnection != null)
+                {
+                    ctx.DbContextOptions.UseMySql(configuration.GetConnectionString("Default"), ServerVersion.Parse("8.0.21-mysql"));
+                }
+                else
+                {
+                    ctx.DbContextOptions.UseMySql(configuration.GetConnectionString("Default"), ServerVersion.Parse("8.0.21-mysql"));
+                }
             });
         });
+    }
+
+    private static IConfigurationRoot BuildConfiguration()
+    {
+        var builder = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: false);
+
+        return builder.Build();
     }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)

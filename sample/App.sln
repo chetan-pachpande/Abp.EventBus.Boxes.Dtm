@@ -13,11 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.Abp.EventBus.Boxes.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App2", "App2\App2.csproj", "{CC117261-D938-48F2-8663-BA2F82608D5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Shared", "App.Shared\App.Shared.csproj", "{D47D76CF-1558-401F-BF90-6A539A70F5EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Shared", "App.Shared\App.Shared.csproj", "{D47D76CF-1558-401F-BF90-6A539A70F5EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.Abp.EventBus.Boxes.Dtm.MongoDB", "..\src\EasyAbp.Abp.EventBus.Boxes.Dtm.MongoDB\EasyAbp.Abp.EventBus.Boxes.Dtm.MongoDB.csproj", "{B40E0C3B-FFCC-46A7-95A9-AA838AB603C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.Abp.EventBus.Boxes.Dtm.MongoDB", "..\src\EasyAbp.Abp.EventBus.Boxes.Dtm.MongoDB\EasyAbp.Abp.EventBus.Boxes.Dtm.MongoDB.csproj", "{B40E0C3B-FFCC-46A7-95A9-AA838AB603C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.Abp.EventBus.Boxes.Dtm.Grpc", "..\src\EasyAbp.Abp.EventBus.Boxes.Dtm.Grpc\EasyAbp.Abp.EventBus.Boxes.Dtm.Grpc.csproj", "{622EE350-4E0D-4F92-8157-2240B095ACB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.Abp.EventBus.Boxes.Dtm.Grpc", "..\src\EasyAbp.Abp.EventBus.Boxes.Dtm.Grpc\EasyAbp.Abp.EventBus.Boxes.Dtm.Grpc.csproj", "{622EE350-4E0D-4F92-8157-2240B095ACB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
