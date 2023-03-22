@@ -32,5 +32,6 @@ public class App1DbContext : AbpDbContext<App1DbContext>
         builder.ConfigureTenantManagement();
 
         /* Configure your own entities here */
+
     }
 }

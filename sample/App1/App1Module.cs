@@ -50,7 +50,6 @@ using Volo.Abp.EntityFrameworkCore.DistributedEvents;
 using EasyAbp.Abp.EventBus.Boxes.Dtm.Outbox;
 using Volo.Abp.EventBus.RabbitMq;
 using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql;
 using Volo.Abp.EntityFrameworkCore.MySQL;
 
 namespace App1;
@@ -319,7 +318,7 @@ public class App1Module : AbpModule
             {
                 if (ctx.ExistingConnection != null)
                 {
-                    ctx.DbContextOptions.UseMySql(configuration.GetConnectionString("Default"), ServerVersion.Parse("8.0.21-mysql"));
+                    ctx.DbContextOptions.UseMySql(configuration.GetConnectionString("Default"), ServerVersion.Parse("8.0.21-mysql"));                   
                 }
                 else
                 {
